@@ -37,5 +37,64 @@ public class Canard {
         this.atk = atk;
         this.capaciteSpe = capaciteSpe;
     }
+
+    /**
+     * Retourne le nom du canard
+     * @return nom
+     */
+    public String getNom() {
+        return this.nom;
+    }
+
+    /**
+     * Retourne les points de vie du canard
+     * @return pv
+     */
+    public int getPointsDeVie() {
+        return this.pv;
+    }
+
+    /**
+     * Retourne les points d'attaques du canard
+     * @return atk
+     */
+    public int getPointsAttaque() {
+        return this.atk;
+    }
+
+    /**
+     * Retourne le type du canard
+     * @return type
+     */
+    public TypeCanard getType() {
+        return null; //bouchon
+    }
+
+    /**
+     * Permet au canard actuel d'attaquer un autre canard
+     * @param canard le canard à attaquer
+     */
+    public void attaquer(Canard canard) {
+        int degatCalcule = 0;
+        canard.subirDegats(degatCalcule);
+    }
+
+    /**
+     * Inflige des dégats au canard actuel
+     * @param degats dégat subit
+     */
+    public void subirDegats(int degats) {
+
+    }
+
+    /**
+     * Détermine si un canard est KO
+     * @return true si il est ko
+     *         false sinon
+     */
+    public boolean estKO() {
+        return pv == 0;
+    }
+
 }
 
