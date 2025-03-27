@@ -27,7 +27,7 @@ public class Canard {
      * @param nom Nom du canard
      * @param type Type du canard
      * @param pv Points de vie du canard
-     * @param pa Points d'attaque du canard
+     * @param atk Points d'attaque du canard
      * @param capaciteSpe Capacité spéciale du canard
      */
     public Canard(String nom, String type, int pv, int atk, String capaciteSpe) {
