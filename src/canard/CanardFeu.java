@@ -7,6 +7,6 @@ public class CanardFeu extends Canard {
     }
 
     public void activerCapaciteSpeciale() {
-
+        atk += 10;
     }
 }

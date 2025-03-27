@@ -7,7 +7,7 @@ public class CanardEau extends Canard {
     }
 
     public void activerCapaciteSpeciale() {
-
+        pv += 20;
     }
 
 }
