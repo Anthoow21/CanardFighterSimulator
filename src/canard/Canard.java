@@ -1,32 +1,47 @@
 package canard;
 
 /**
- * Classe représentant un canard.Canard avec ses caractéristiques.
+ * Classe représentant un Canard avec ses caractéristiques.
  *
  * @author Anthony ENJALBERT & Clément SAURY
  * @version 1.0
  */
 public class Canard {
 
-    /** Nom du canard. */
+    // Nom du canard
     protected String nom;
 
-    /** Type du canard. */
+    // Type du canard
     protected TypeCanard type;
 
-    /** Points de vie du canard. */
+    // Points de vie du canard
     protected int pv;
 
-    /** Points d'attaque du canard. */
+    // Points d'attaque du canard
     protected int atk;
 
-    /** Capacité spéciale du canard. */
+    // Capacité spéciale du canard
     protected String capaciteSpe;
 
 
     /**
-     * Constructeur de la classe canard.Canard.
+     * Permet d'initialiser un Canard de type Normal
      *
+     * @param nom Nom du canard
+     * @param pv Points de vie du canard
+     * @param atk Points d'attaque du canard
+     * @param capaciteSpe Capacité spéciale du canard
+     */
+    public Canard(String nom, int pv, int atk, String capaciteSpe) {
+        this.nom = nom;
+        this.type = TypeCanard.NORMAL;
+        this.pv = pv;
+        this.atk = atk;
+        this.capaciteSpe = capaciteSpe;
+    }
+
+    /**
+     * Permet d'initialiser un Canard avec un type définit
      * @param nom Nom du canard
      * @param type Type du canard
      * @param pv Points de vie du canard
@@ -70,7 +85,7 @@ public class Canard {
      * @return type
      */
     public TypeCanard getType() {
-        return null; //bouchon
+        return this.type;
     }
 
     /**
@@ -78,9 +93,9 @@ public class Canard {
      * @param canard le canard à attaquer
      */
     public void attaquer(Canard canard) {
-        int degatCalcule = 0;
-
-
+        int degatCalcule = this.atk;
+        double multiplicateur = TypeCanard.getMultiplicateur(this.type, canard.type);
+        degatCalcule *= (int) multiplicateur;
 
         canard.subirDegats(degatCalcule);
     }
@@ -90,7 +105,12 @@ public class Canard {
      * @param degats dégat subit
      */
     public void subirDegats(int degats) {
-        this.pv -= degats;
+        // Permet d'éviter que le canard ait des pv négatifs (et donc renvoie false sur la méthode estKO)
+        if(this.pv < 0) {
+            this.pv = 0;
+        } else {
+            this.pv -= degats;
+        }
     }
 
     /**

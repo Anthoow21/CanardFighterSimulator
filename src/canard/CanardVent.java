@@ -2,8 +2,15 @@ package canard;
 
 public class CanardVent extends Canard {
 
-    public CanardVent(String nom, TypeCanard type, int pv, int atk, String capaciteSpe) {
-        super(nom, type, pv, atk, capaciteSpe);
+    /**
+     * Permet d'initialiser un Canard de type Vent
+     * @param nom Nom du canard
+     * @param pv Points de vie du canard
+     * @param atk Points d'attaque du canard
+     * @param capaciteSpe Capacité spéciale du canard
+     */
+    public CanardVent(String nom, int pv, int atk, String capaciteSpe) {
+        super(nom, TypeCanard.VENT, pv, atk, capaciteSpe);
     }
 
     public void activerCapaciteSpeciale() {
